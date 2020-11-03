@@ -2,15 +2,13 @@ language: java
 script:
   - cd ./simple-api/
   - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=roxannekey
-  - cd ..
-
   # Connexion à Docker
   - docker login -u $login -p $mdp
 
   # Build
-  - docker build -t $login/Docker-tp-2:database database
-  - docker build -t $login/Docker-tp-2:httpd httpd
-  - docker build -t $login/Docker-tp-2:simple-api simple-api
+  - docker build -t $login/Docker-tp-2-main_database database
+  - docker build -t raudut/Docker-tp-2-main_httpd httpd
+  - docker build -t $login/Docker-tp-2-main_simple-api simple-api
 
   # Publication des images
   - docker push $login/Docker-tp-2:database
