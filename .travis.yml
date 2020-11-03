@@ -1,4 +1,19 @@
 language: java
 script:
+#Test and build your app with docker
 - cd ./simple-api
 - mvn clean verify
+
+#Connexion à Docker
+- docker login -u $docker-login -p $docker-mdp
+
+#Publication des images
+- docker push raudut/Docker-tp-2-main_database
+- docker push raudut/Docker-tp-2-main_httpd
+- docker push raudut/Docker-tp-2-main_simple-api
+
+cache:
+ -$HOME/.m2
+
+services:
+-docker
