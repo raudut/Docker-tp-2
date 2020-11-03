@@ -12,11 +12,10 @@ script:
   - docker build -t $login/docker-tp-2-main_simple-api simple-api
 
   # Publication des images
-  - docker push $login/docker-tp-2-main_database database
-  - docker push $login/docker-tp-2-main_httpd httpd
-  - docker push $login/docker-tp-2-main_simple-api simple-api
-
-cache:
+  - docker push $login/docker-tp-2-main_database
+  - docker push $login/docker-tp-2-main_httpd
+  - docker push $login/docker-tp-2-main_simple-api
+  cache:
     directories:
         - $HOME/.m2
 services:
