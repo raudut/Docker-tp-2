@@ -6,14 +6,14 @@ script:
   - docker login -u $login -p $mdp
 
   # Build
-  - docker build -t $login/Docker-tp-2-main_database database
-  - docker build -t raudut/Docker-tp-2-main_httpd httpd
-  - docker build -t $login/Docker-tp-2-main_simple-api simple-api
+  - docker build -t $login/docker-tp-2-main_database database
+  - docker build -t $login/docker-tp-2-main_httpd httpd
+  - docker build -t $login/docker-tp-2-main_simple-api simple-api
 
   # Publication des images
-  - docker push $login/Docker-tp-2:database
-  - docker push $login/Docker-tp-2:httpd
-  - docker push $login/Docker-tp-2:simple-api
+  - docker push $login/docker-tp-2-main_database database
+  - docker push $login/docker-tp-2-main_httpd httpd
+  - docker push $login/docker-tp-2-main_simple-api simple-api
 
 cache:
     directories:
