@@ -1,12 +1,13 @@
 language: java
 script:
 #Test and build your app with docker
-- cd ./simple-api
-- mvn clean verify
+- mvn clean verify --file simple-api/pom.xml
 
 #Connexion à Docker
 - docker login -u $login -p $mdp
-
+- docker built -t raudut/Docker-tp-2-main_database database
+- docker built -t raudut/Docker-tp-2-main_httpd httpd
+- docker built -t raudut/Docker-tp-2-main_simple-api simple-api
 #Publication des images
 - docker push raudut/Docker-tp-2-main_database
 - docker push raudut/Docker-tp-2-main_httpd
