@@ -22,5 +22,4 @@ services:
 addons:
  sonarcloud:
  	organization: "roxannekey"
-	token: 
-	 secure: "111557ad69d520e8a375890a10af8d9256af55d1"
+	token: "$SONARCLOUD_TOKEN"
