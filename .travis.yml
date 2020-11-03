@@ -15,7 +15,7 @@ script:
   - docker push $login/docker-tp-2-main_database
   - docker push $login/docker-tp-2-main_httpd
   - docker push $login/docker-tp-2-main_simple-api
-  cache:
+cache:
     directories:
         - $HOME/.m2
 services:
