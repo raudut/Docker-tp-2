@@ -1,8 +1,7 @@
 language: java
 script:
 #Test and build your app with docker
-- mvn clean verify --file simple-api/pom.xml
-
+- mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Docker-tp-2
 #Connexion à Docker
 - docker login -u $login -p $mdp
 - docker built -t raudut/Docker-tp-2-main_database database
@@ -14,7 +13,12 @@ script:
 - docker push raudut/Docker-tp-2-main_simple-api
 
 cache:
- -$HOME/.m2
+- $HOME/.m2
 
 services:
--docker
+- docker
+
+addons:
+ sonarcloud:
+ 	organization: "raudut"
+	token: "$SONARCLOUD_TOKEN"
