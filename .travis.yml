@@ -5,7 +5,7 @@ script:
   - cd ..
 
   # Connexion à Docker
-  - docker login -u $DOCKER_USER -p $DOCKER_PWD
+  - docker login -u $login -p $mdp
 
   # Build
   - docker build -t $DOCKER_USER/Docker-tp-2:database database
@@ -21,8 +21,8 @@ cache:
     directories:
         - $HOME/.m2
 services:
-- docker
- addons:
-    sonarcloud:
-        organization: "roxannekey"
-	token: $SONARCLOUD_TOKEN
+  - docker
+addons:
+ sonarcloud:
+  organization: "roxannekey"
+  token: $SONARCLOUD_TOKEN
