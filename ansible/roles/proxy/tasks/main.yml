@@ -1,0 +1,10 @@
+---
+- name: Proxy container
+  docker_container:
+    name: reverse_proxy
+    image: raudut/docker-tp-2-main_httpd
+    state: started
+    networks:
+      - name: app-network
+    ports:
+      - "80:80"
