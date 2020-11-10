@@ -4,6 +4,7 @@
     name: database
     image: raudut/docker-tp-2-main_database
     state: started
+    pull: yes
     networks:
       - name: app-network
     env:
