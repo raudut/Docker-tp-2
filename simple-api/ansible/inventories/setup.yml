@@ -1,7 +1,0 @@
-all:
-  vars:
-    ansible_user: centos
-    ansible_ssh_private_key_file: /home/raudut/.ssh/id_rsa
-  children:
-    prod:
-      host: roxanne.auduteau.takima.cloud

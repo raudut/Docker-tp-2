@@ -6,7 +6,7 @@
     state: started
     networks:
       - name: app-network
-
+    pull: yes
     env:
       SPRING_DATASOURCE_PASSWORD: "{{ db_password }}"
       SPRING_DATASOURCE_USER: "{{ db_user }}"
